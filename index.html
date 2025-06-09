@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Uyghur TTS Multilingual Transfer Demo</title>
+  <style>
+    body { font-family: Arial, sans-serif; margin: 20px; }
+    table { border-collapse: collapse; width: 100%; }
+    th, td { padding: 8px; border: 1px solid #ccc; text-align: center; }
+    audio { width: 160px; }
+    th { background-color: #f2f2f2; }
+  </style>
+</head>
+<body>
+  <h1>Improving Uyghur Speech Synthesis with Monolingual Transfer Learning: A Comparison of English and Russian Pretraining</h1>
+
+  <p>This webpage serves as the companion site for the thesis <em>Improving Uyghur Speech Synthesis with Monolingual Transfer Learning: A Comparison of English and Russian Pretraining</em>.</p>
+
+  <p>The study focuses on the strategy selection problem in low-resource speech synthesis. It compares two monolingual transfer paths—using English (LJSpeech) and Russian (CSS10-Russian) as source languages—to investigate whether structural similarity between the source and target languages significantly influences the quality of speech synthesis via transfer learning. The target language is Uyghur, and the model architecture used is FastSpeech 2.</p>
+
+  <p>All code, configuration files, and related documentation for this study are publicly available on GitHub:
+  👉 <a href="https://github.com/oufeire/UyghurTTS-FS2" target="_blank">https://github.com/oufeire/UyghurTTS-FS2</a></p>
+
+  <h2>Synthesized Speech Sample Showcase</h2>
+  <p>Below are the synthesized speech samples from the three models:</p>
+  <ul>
+    <li><strong>M0 (Uyghur-only)</strong>: Trained only on Uyghur data without any pretraining</li>
+    <li><strong>M1 (English transfer)</strong>: Pretrained on English data and then fine-tuned on Uyghur</li>
+    <li><strong>M2 (Russian transfer)</strong>: Pretrained on Russian data and then fine-tuned on Uyghur</li>
+  </ul>
+
+  <table>
+    <tr>
+      <th>#</th>
+      <th>Text</th>
+      <th>Ground-truth (native Uyghur speech)</th>
+      <th>English pretraining → Uyghur finetuning</th>
+      <th>Russian pretraining → Uyghur finetuning</th>
+      <th>Uyghur-only model (no pretraining)</th>
+    </tr>
+    <tr>
+      <td>1</td>
+      <td>ghuljia xәhiridiki ux hususiy iqimlik zawuti peqәtlәndi</td>
+      <td><audio controls src="1.wav"></audio></td>
+      <td><audio controls src="ENUY1.wav"></audio></td>
+      <td><audio controls src="RUUY1.wav"></audio></td>
+      <td><audio controls src="UG1.wav"></audio></td>
+    </tr>
+    <tr>
+      <td>2</td>
+      <td>ha ras gezit botkisi aqamsәn ya</td>
+      <td><audio controls src="2.wav"></audio></td>
+      <td><audio controls src="ENUY2.wav"></audio></td>
+      <td><audio controls src="RUUY2.wav"></audio></td>
+      <td><audio controls src="UG2.wav"></audio></td>
+    </tr>
+    <tr>
+      <td>3</td>
+      <td>ilyas dәrs waktida muallimning sozigә daim koxuk selip tәrtipni buzidu</td>
+      <td><audio controls src="3.wav"></audio></td>
+      <td><audio controls src="ENUY3.wav"></audio></td>
+      <td><audio controls src="RUUY3.wav"></audio></td>
+      <td><audio controls src="UG3.wav"></audio></td>
+    </tr>
+    <tr>
+      <td>4</td>
+      <td>kara xekәrning tәbiiti motidil opkigә namlik yәtkuzidu</td>
+      <td><audio controls src="4.wav"></audio></td>
+      <td><audio controls src="ENUY4.wav"></audio></td>
+      <td><audio controls src="RUUY4.wav"></audio></td>
+      <td><audio controls src="UG4.wav"></audio></td>
+    </tr>
+    <tr>
+      <td>5</td>
+      <td>kangә kop yazsakmu uning on mingdin biriui tәswirlәp bolalmaymiz</td>
+      <td><audio controls src="5.wav"></audio></td>
+      <td><audio controls src="ENUY5.wav"></audio></td>
+      <td><audio controls src="RUUY5.wav"></audio></td>
+      <td><audio controls src="UG5.wav"></audio></td>
+    </tr>
+    <tr>
+      <td>6</td>
+      <td>kelәeki haptә hawa temperaturisi nol giraduska quxidu</td>
+      <td><audio controls src="6.wav"></audio></td>
+      <td><audio controls src="ENUY6.wav"></audio></td>
+      <td><audio controls src="RUUY6.wav"></audio></td>
+      <td><audio controls src="UG6.wav"></audio></td>
+    </tr>
+    <tr>
+      <td>7</td>
+      <td>kixta gaz oqakka ot yakimәn yazda yәpugux bilәn yәlpuymәn</td>
+      <td><audio controls src="7.wav"></audio></td>
+      <td><audio controls src="ENUY7.wav"></audio></td>
+      <td><audio controls src="RUUY7.wav"></audio></td>
+      <td><audio controls src="UG7.wav"></audio></td>
+    </tr>
+    <tr>
+      <td>8</td>
+      <td>mәn tughlghan kunumdә nurgunligan sowgha kobul kildim</td>
+      <td><audio controls src="8.wav"></audio></td>
+      <td><audio controls src="ENUY8.wav"></audio></td>
+      <td><audio controls src="RUUY8.wav"></audio></td>
+      <td><audio controls src="UG8.wav"></audio></td>
+    </tr>
+    <tr>
+      <td>9</td>
+      <td>u tughma sәpra mijәz bolup keqkimning gepini anglimaydu</td>
+      <td><audio controls src="9.wav"></audio></td>
+      <td><audio controls src="ENUY9.wav"></audio></td>
+      <td><audio controls src="RUUY9.wav"></audio></td>
+      <td><audio controls src="UG9.wav"></audio></td>
+    </tr>
+    <tr>
+      <td>10</td>
+      <td>ular otturisidiki dostanә munasiwәt xuningdin etibarәn buzuldi</td>
+      <td><audio controls src="10.wav"></audio></td>
+      <td><audio controls src="ENUY10.wav"></audio></td>
+      <td><audio controls src="RUUY10.wav"></audio></td>
+      <td><audio controls src="UG10.wav"></audio></td>
+    </tr>
+  </table>
+</body>
+</html>
